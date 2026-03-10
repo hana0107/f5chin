@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出師表｜第三四段 精煉問答</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700;900&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f5ead6;
+    --parchment-dark: #e8d5b0;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --gold-pale: #f0d078;
+    --red-seal: #9b1d1d;
+    --red-light: #c0392b;
+    --jade: #2d6a4f;
+    --jade-light: #40916c;
+    --shadow: rgba(26,18,8,0.18);
+    --correct-bg: #e8f5e9;
+    --wrong-bg: #fdecea;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #2b1e0e;
+    background-image:
+      radial-gradient(ellipse at 20% 30%, rgba(80,40,10,0.6) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 70%, rgba(60,30,5,0.5) 0%, transparent 55%),
+      url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a07030' fill-opacity='0.04'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0L80 12v2L54 40h-2zm4 0L80 16v2L58 40h-2zm4 0L80 20v2L62 40h-2zm4 0L80 24v2L66 40h-2zm4 0L80 28v2L70 40h-2zm4 0L80 32v2L74 40h-2zm4 0L80 36v2L78 40h-2zm4 0L80 40v-2h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    min-height: 100vh;
+    font-family: 'Noto Serif TC', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 16px 60px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+    animation: fadeDown 0.8s ease both;
+  }
+  .header-label {
+    font-family: 'Ma Shan Zheng', cursive;
+    color: var(--gold-pale);
+    font-size: 13px;
+    letter-spacing: 6px;
+    opacity: 0.75;
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: clamp(32px, 6vw, 54px);
+    color: var(--gold-pale);
+    letter-spacing: 8px;
+    text-shadow: 0 2px 24px rgba(212,160,23,0.5), 0 0 60px rgba(212,160,23,0.15);
+    line-height: 1.2;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(245,234,214,0.5);
+    letter-spacing: 4px;
+    margin-top: 8px;
+  }
+  .header-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .header-divider span { color: var(--gold); font-size: 18px; }
+  .header-divider .line {
+    width: 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* ── SCROLL CONTAINER ── */
+  .scroll-wrap {
+    width: 100%;
+    max-width: 760px;
+    position: relative;
+  }
+  /* parchment edges */
+  .scroll-wrap::before, .scroll-wrap::after {
+    content: '';
+    display: block;
+    height: 18px;
+    background: linear-gradient(180deg, #8b5c1a, #c8944a 40%, #a0702a 60%, #6b3f0e);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+  }
+  .scroll-wrap::after {
+    border-radius: 0 0 4px 4px;
+    background: linear-gradient(0deg, #8b5c1a, #c8944a 40%, #a0702a 60%, #6b3f0e);
+  }
+
+  .scroll-body {
+    background: var(--parchment);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E"),
+      linear-gradient(160deg, #fdf3dd 0%, #f5ead6 40%, #eddfc8 100%);
+    padding: 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-body::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(139,92,26,0.12) 0%, transparent 8%),
+      linear-gradient(270deg, rgba(139,92,26,0.12) 0%, transparent 8%);
+    pointer-events: none;
+  }
+
+  @media(max-width:560px){ .scroll-body { padding: 28px 20px; } }
+
+  /* ── PROGRESS ── */
+  .progress-bar-wrap {
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .progress-label {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    white-space: nowrap;
+    min-width: 60px;
+  }
+  .progress-track {
+    flex: 1; height: 6px;
+    background: rgba(184,134,11,0.2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-pale));
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(.4,0,.2,1);
+  }
+  .score-badge {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 15px;
+    color: var(--red-seal);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  /* ── QUESTION CARD ── */
+  .question-card {
+    animation: slideUp 0.5s cubic-bezier(.4,0,.2,1) both;
+  }
+
+  .q-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .q-num {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 13px;
+    color: var(--parchment);
+    background: var(--red-seal);
+    padding: 2px 10px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+  }
+  .q-type-tag {
+    font-size: 11px;
+    color: var(--jade);
+    border: 1px solid var(--jade-light);
+    padding: 1px 8px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+  }
+  .q-timer {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--gold);
+    transition: color 0.3s;
+  }
+  .q-timer.urgent { color: var(--red-light); animation: pulse 0.5s infinite alternate; }
+
+  .q-source {
+    font-size: 11.5px;
+    color: rgba(26,18,8,0.45);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+
+  .q-text {
+    font-size: clamp(15px, 2.4vw, 18px);
+    color: var(--ink);
+    line-height: 1.95;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+  .q-text .highlight {
+    color: var(--red-seal);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(155,29,29,0.3);
+    text-underline-offset: 3px;
+  }
+  .q-quote {
+    background: rgba(184,134,11,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 10px 16px;
+    font-size: 14px;
+    color: rgba(26,18,8,0.7);
+    line-height: 1.9;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── OPTIONS ── */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+  .option-btn {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(245,234,214,0.6);
+    border: 1.5px solid rgba(184,134,11,0.25);
+    border-radius: 6px;
+    padding: 13px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-family: 'Noto Serif TC', serif;
+    position: relative;
+    overflow: hidden;
+  }
+  .option-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(212,160,23,0.07), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--gold);
+    transform: translateX(4px);
+    box-shadow: 0 2px 12px rgba(184,134,11,0.15);
+  }
+  .option-btn:hover:not(:disabled)::before { opacity: 1; }
+  .option-btn:disabled { cursor: default; }
+
+  .option-key {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 18px;
+    color: var(--gold);
+    min-width: 24px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  .option-text {
+    font-size: clamp(13px, 2vw, 15px);
+    color: var(--ink);
+    line-height: 1.75;
+    letter-spacing: 0.8px;
+  }
+
+  .option-btn.correct {
+    background: #e8f5e2;
+    border-color: var(--jade-light);
+    animation: correctFlash 0.4s ease;
+  }
+  .option-btn.correct .option-key { color: var(--jade); }
+  .option-btn.wrong {
+    background: #fbeaea;
+    border-color: var(--red-light);
+    animation: wrongShake 0.4s ease;
+  }
+  .option-btn.wrong .option-key { color: var(--red-light); }
+  .option-icon {
+    margin-left: auto;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+  .option-btn.correct .option-icon,
+  .option-btn.wrong .option-icon { opacity: 1; }
+
+  /* ── FEEDBACK ── */
+  .feedback-box {
+    display: none;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    animation: fadeIn 0.3s ease;
+  }
+  .feedback-box.show { display: block; }
+  .feedback-box.correct-fb {
+    background: rgba(45,106,79,0.08);
+    border: 1px solid rgba(64,145,108,0.35);
+  }
+  .feedback-box.wrong-fb {
+    background: rgba(155,29,29,0.07);
+    border: 1px solid rgba(192,57,43,0.3);
+  }
+  .feedback-header {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  .correct-fb .feedback-header { color: var(--jade); }
+  .wrong-fb .feedback-header { color: var(--red-seal); }
+  .feedback-text {
+    font-size: 13px;
+    color: rgba(26,18,8,0.72);
+    line-height: 1.85;
+    letter-spacing: 0.8px;
+  }
+  .feedback-correct-ans {
+    font-size: 12.5px;
+    color: var(--jade);
+    font-weight: 600;
+    margin-top: 5px;
+  }
+
+  /* ── NEXT BTN ── */
+  .next-btn {
+    display: none;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #8b5c1a, var(--gold-light));
+    border: none; border-radius: 6px;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 17px;
+    color: var(--parchment);
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 3px 12px rgba(139,92,26,0.3);
+  }
+  .next-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,92,26,0.4); }
+  .next-btn.show { display: block; animation: fadeUp 0.4s ease both; }
+
+  /* ── RESULT SCREEN ── */
+  .result-screen {
+    display: none;
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+  }
+  .result-screen.show { display: block; }
+
+  .result-seal {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: var(--red-seal);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 0 0 6px rgba(155,29,29,0.2), 0 4px 20px rgba(155,29,29,0.4);
+    animation: sealReveal 0.8s cubic-bezier(.17,.67,.31,1.5) both 0.2s;
+  }
+  .result-seal-text {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 28px;
+    color: var(--parchment);
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .result-score {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 48px;
+    color: var(--red-seal);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .result-total { font-size: 15px; color: rgba(26,18,8,0.5); letter-spacing: 3px; margin-bottom: 20px; }
+
+  .result-rank {
+    display: inline-block;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 22px;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 6px 28px;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+  }
+  .result-msg {
+    font-size: 14px;
+    color: rgba(26,18,8,0.65);
+    line-height: 1.9;
+    letter-spacing: 1.5px;
+    max-width: 440px;
+    margin: 0 auto 28px;
+  }
+
+  .review-list { text-align: left; margin-bottom: 24px; }
+  .review-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 9px 12px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+  }
+  .review-item.r-correct { background: rgba(45,106,79,0.07); }
+  .review-item.r-wrong { background: rgba(155,29,29,0.06); }
+  .review-dot { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .review-q { color: rgba(26,18,8,0.7); flex: 1; }
+  .review-ans { font-size: 12px; color: var(--jade); }
+  .review-wrong-ans { font-size: 12px; color: var(--red-seal); }
+
+  .restart-btn {
+    padding: 13px 48px;
+    background: var(--red-seal);
+    border: none; border-radius: 4px;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 18px;
+    color: var(--parchment);
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 3px 14px rgba(155,29,29,0.35);
+  }
+  .restart-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(155,29,29,0.45); }
+
+  /* INTRO */
+  .intro-screen { text-align: center; animation: fadeIn 0.6s ease; }
+  .intro-screen.hide { display: none; }
+  .passage-box {
+    background: rgba(184,134,11,0.06);
+    border: 1px solid rgba(184,134,11,0.2);
+    border-radius: 6px;
+    padding: 18px 22px;
+    text-align: left;
+    margin: 20px 0;
+  }
+  .passage-title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+  .passage-text {
+    font-size: 13px;
+    color: rgba(26,18,8,0.72);
+    line-height: 2;
+    letter-spacing: 1.5px;
+  }
+  .start-btn {
+    padding: 14px 56px;
+    background: linear-gradient(135deg, var(--red-seal), #c0392b);
+    border: none; border-radius: 4px;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 20px;
+    color: var(--parchment);
+    letter-spacing: 6px;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 4px 18px rgba(155,29,29,0.4);
+    margin-top: 8px;
+  }
+  .start-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(155,29,29,0.5); }
+
+  /* CONFETTI */
+  .confetti-piece {
+    position: fixed;
+    width: 8px; height: 8px;
+    pointer-events: none;
+    z-index: 999;
+    border-radius: 1px;
+    animation: confettiFall linear forwards;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes slideUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes correctFlash { 0%,100%{} 50%{background:#c8f0d0;} }
+  @keyframes wrongShake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-6px);} 75%{transform:translateX(6px);} }
+  @keyframes pulse { from{opacity:1;} to{opacity:0.4;} }
+  @keyframes sealReveal { from{opacity:0;transform:scale(0.5) rotate(-15deg);} to{opacity:1;transform:scale(1) rotate(0);} }
+  @keyframes confettiFall {
+    0% { opacity:1; transform: translateY(0) rotate(0deg); }
+    100% { opacity:0; transform: translateY(100vh) rotate(720deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">諸葛亮．前出師表</div>
+  <div class="header-title">出師表</div>
+  <div class="header-sub">第三段 · 第四段　精煉問答</div>
+  <div class="header-divider">
+    <div class="line"></div>
+    <span>✦</span>
+    <div class="line"></div>
+  </div>
+</div>
+
+<div class="scroll-wrap">
+  <div class="scroll-body">
+
+    <!-- INTRO -->
+    <div class="intro-screen" id="introScreen">
+      <div style="font-family:'Ma Shan Zheng',cursive;font-size:20px;color:var(--red-seal);letter-spacing:4px;margin-bottom:16px;">
+        考核範圍
+      </div>
+      <div class="passage-box">
+        <div class="passage-title">第三段</div>
+        <div class="passage-text">宮中、府中，俱為一體，陟罰臧否，不宜異同。若有作奸犯科及為忠善者，宜付有司，論其刑賞，以昭陛下平明之治；不宜偏私，使內外異法也。</div>
+      </div>
+      <div class="passage-box">
+        <div class="passage-title">第四段</div>
+        <div class="passage-text">侍中、侍郎郭攸之、費禕、董允等，此皆良實，志慮忠純，是以先帝簡拔以遺陛下。愚以為宮中之事，事無大小，悉以咨之，然後施行，必能裨補闕漏，有所廣益。將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰能，是以眾議舉寵為督。愚以為營中之事，悉以咨之，必能使行陣和睦，優劣得所。</div>
+      </div>
+      <div style="font-size:13px;color:rgba(26,18,8,0.5);letter-spacing:2px;margin-bottom:20px;">
+        共 12 題 · 全選擇題 · 每題 30 秒
+      </div>
+      <button class="start-btn" onclick="startQuiz()">開始應試</button>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quizScreen" style="display:none;">
+      <div class="progress-bar-wrap">
+        <span class="progress-label" id="progressLabel">第 1 / 12 題</span>
+        <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        <span class="score-badge" id="scoreBadge">✦ 0 分</span>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <div class="q-meta">
+          <span class="q-num" id="qNum">第一題</span>
+          <span class="q-type-tag" id="qType">詞義辨析</span>
+          <span class="q-timer" id="qTimer">30</span>
+        </div>
+        <div class="q-source" id="qSource">── 第三段</div>
+        <div class="q-quote" id="qQuote" style="display:none;"></div>
+        <div class="q-text" id="qText"></div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="feedback-box" id="feedbackBox">
+          <div class="feedback-header" id="feedbackHeader"></div>
+          <div class="feedback-text" id="feedbackText"></div>
+          <div class="feedback-correct-ans" id="feedbackCorrectAns"></div>
+        </div>
+        <button class="next-btn" id="nextBtn" onclick="nextQuestion()">下一題　▶</button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-screen" id="resultScreen">
+      <div class="result-seal">
+        <div class="result-seal-text" id="sealText">優</div>
+      </div>
+      <div class="result-score" id="resultScore">0</div>
+      <div class="result-total">滿分 120 分</div>
+      <div class="result-rank" id="resultRank">─</div>
+      <div class="result-msg" id="resultMsg"></div>
+      <div class="review-list" id="reviewList"></div>
+      <button class="restart-btn" onclick="restartQuiz()">重新應試</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const NUMS = ['一','二','三','四','五','六','七','八','九','十','十一','十二'];
+const KEYS = ['甲','乙','丙','丁'];
+
+const questions = [
+  // ── 第三段 ──
+  {
+    seg: '第三段',
+    type: '詞義辨析',
+    quote: '宮中、府中，俱為一體，陟罰臧否，不宜異同。',
+    text: '「陟罰臧否」中，「臧否」的詞義是？',
+    opts: ['臟腑，指身體健康', '褒揚與責備，即評斷優劣', '收藏與否定，指保存制度', '鄉愿與否決，指朝廷議事'],
+    ans: 1,
+    explain: '「臧」意為善、褒揚；「否」意為惡、責備。「臧否」即評定人物的好壞優劣，此處作動詞用，意為「褒揚或責備」。'
+  },
+  {
+    seg: '第三段',
+    type: '詞類活用',
+    quote: '陟罰臧否，不宜異同。',
+    text: '「陟罰臧否」四字均屬詞類活用，其活用方式是？',
+    opts: ['名詞用作動詞', '形容詞用作動詞', '動詞用作名詞', '使動用法'],
+    ans: 1,
+    explain: '「陟」（提升）、「罰」（懲罰）本為動詞；「臧」（好）、「否」（壞）本為形容詞，此處活用作動詞，意為「褒揚」和「責備」。四字連讀，均表動作。'
+  },
+  {
+    seg: '第三段',
+    type: '句義理解',
+    quote: '若有作奸犯科及為忠善者，宜付有司，論其刑賞。',
+    text: '「付有司，論其刑賞」的意思是？',
+    opts: ['由陛下親自裁決賞罰', '交由皇后及宮中決定', '交給主管官員評定賞罰', '由諸葛亮全權決定'],
+    ans: 2,
+    explain: '「有司」指分別掌管各類事務的官員，即主管官員。「論其刑賞」即依據罪功評定懲罰或獎賞。此句強調依法辦事，不由一人獨斷。'
+  },
+  {
+    seg: '第三段',
+    type: '寫作目的',
+    text: '諸葛亮在第三段提出「宮中、府中，俱為一體」，其最主要目的是？',
+    opts: ['表示自己與陛下同心', '強調宮廷侍臣地位高於相府官員', '要求劉禪對宮廷與相府一視同仁、執法統一', '說明宮廷規模應與相府相同'],
+    ans: 2,
+    explain: '諸葛亮強調宮中（宮廷侍臣）與府中（相府官吏）同屬一體，賞罰標準必須一致，防止劉禪因親疏偏袒，破壞法制公平，動搖朝政根基。'
+  },
+  {
+    seg: '第三段',
+    type: '詞義辨析',
+    quote: '以昭陛下平明之治',
+    text: '「平明之治」中「平明」的意思是？',
+    opts: ['平靜清明，指朝政安定', '公正嚴明，指賞罰公平', '天色平明，指每日早朝', '平庸明快，指施政簡便'],
+    ans: 1,
+    explain: '「平」指公正、不偏私；「明」指嚴明、清晰。「平明之治」即公正嚴明的治理，是諸葛亮期望後主建立的政治形象。'
+  },
+  {
+    seg: '第三段',
+    type: '語法分析',
+    quote: '不宜偏私，使內外異法也。',
+    text: '「使內外異法」中「使」字的語法功能是？',
+    opts: ['表示「命令」，即命令官員執行', '使動用法，意為「導致……有不同」', '表示「派遣」，即委派官員', '連詞，意為「即使」'],
+    ans: 1,
+    explain: '此處「使」為使動用法，意為「使……如此」，即「導致宮廷和相府有不同的執法標準」。諸葛亮以此警示劉禪勿因偏私造成法制不一。'
+  },
+  // ── 第四段 ──
+  {
+    seg: '第四段',
+    type: '人物辨析',
+    text: '第四段中，諸葛亮向後主推薦負責「宮中之事」的人物是？',
+    opts: ['向寵', '郭攸之、費禕、董允', '趙雲、馬超', '蔣琬、費禕'],
+    ans: 1,
+    explain: '諸葛亮推薦侍中郭攸之、費禕及侍郎董允負責宮中（朝廷內政）事務；而將軍向寵則負責「營中之事」（軍務）。二者分工明確。'
+  },
+  {
+    seg: '第四段',
+    type: '詞義辨析',
+    quote: '此皆良實，志慮忠純，是以先帝簡拔以遺陛下。',
+    text: '「簡拔以遺陛下」中「遺」字的讀音及意思是？',
+    opts: ['讀「遺忘」之遺，意為忘記', '讀「遺留」之遺（粵音：位），意為留給', '讀「遺棄」之遺，意為捨棄', '讀「遺漏」之遺，意為漏報'],
+    ans: 1,
+    explain: '此處「遺」讀「位」音（普通話 wèi），作動詞，意為「留給、給予」。全句意為：因此先帝將他們揀選提拔出來，留給陛下輔佐朝政。'
+  },
+  {
+    seg: '第四段',
+    type: '詞義辨析',
+    quote: '必能裨補闕漏，有所廣益。',
+    text: '「裨補闕漏」中「闕」字的意思是？',
+    opts: ['宮殿城門', '通「缺」，指缺失、疏漏', '減少，指削減開支', '隱瞞，指掩蓋過失'],
+    ans: 1,
+    explain: '「闕」通假字，通「缺」，意為缺失、疏漏。「裨補闕漏」即彌補施政上的缺失疏漏。此為古漢語常見通假，考試常見考點。'
+  },
+  {
+    seg: '第四段',
+    type: '人物特質',
+    quote: '將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰能。',
+    text: '諸葛亮推薦向寵的理由共幾點？以下哪項最完整？',
+    opts: [
+      '忠誠純正、通曉政務、眾望所歸',
+      '性情和善公正、通曉軍事、先帝曾稱許其能幹',
+      '出身名門、作戰英勇、謙遜有禮',
+      '熟悉律法、善待士卒、精通兵法'
+    ],
+    ans: 1,
+    explain: '原文提出三項：①「性行淑均」（性情和善公正）；②「曉暢軍事」（通曉軍務）；③「先帝稱之曰能」（先帝曾稱許）。三者合而構成推薦向寵的充分理由。'
+  },
+  {
+    seg: '第四段',
+    type: '深層理解',
+    text: '諸葛亮在第四段分別就「宮中」和「營中」推薦人選，此安排反映其什麼用意？',
+    opts: [
+      '顯示自己識人之明，鞏固個人地位',
+      '分別為文官和武將建立兩套班底，便於日後奪權',
+      '為後主建立可信賴的輔政班子，確保內政與軍務有賢臣各司其職',
+      '借推薦之名，排除異己，鞏固親信勢力'
+    ],
+    ans: 2,
+    explain: '諸葛亮此舉是出於忠心，為後主建立穩固的輔政架構：郭攸之等人主內政，向寵主軍務，分工明確。其目的是確保北伐期間後方朝政穩定，體現鞠躬盡瘁之忠誠。'
+  },
+  {
+    seg: '第四段',
+    type: '比較分析',
+    text: '第三段與第四段的建議，在性質上最主要的分別是？',
+    opts: [
+      '第三段論軍事，第四段論外交',
+      '第三段強調執法公平原則，第四段推薦具體人選輔政',
+      '第三段針對宦官，第四段針對外戚',
+      '第三段是回憶往事，第四段是展望未來'
+    ],
+    ans: 1,
+    explain: '第三段屬「制度原則」層面：強調宮府一體、賞罰公平，是對後主施政態度的要求；第四段屬「人事安排」層面：具體推薦賢臣分掌內政與軍務，是落實建議的實際方案，兩者相輔相成。'
+  }
+];
+
+let current = 0;
+let score = 0;
+let timer = null;
+let timeLeft = 30;
+let answered = false;
+let userAnswers = [];
+
+function startQuiz() {
+  document.getElementById('introScreen').classList.add('hide');
+  document.getElementById('quizScreen').style.display = 'block';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  answered = false;
+  timeLeft = 30;
+  const q = questions[current];
+
+  document.getElementById('progressLabel').textContent = `第 ${current+1} / ${questions.length} 題`;
+  document.getElementById('progressFill').style.width = `${(current/questions.length)*100}%`;
+  document.getElementById('scoreBadge').textContent = `✦ ${score} 分`;
+
+  const card = document.getElementById('questionCard');
+  card.style.animation = 'none';
+  void card.offsetWidth;
+  card.style.animation = 'slideUp 0.45s cubic-bezier(.4,0,.2,1) both';
+
+  document.getElementById('qNum').textContent = `第${NUMS[current]}題`;
+  document.getElementById('qType').textContent = q.type;
+  document.getElementById('qSource').textContent = `── ${q.seg}`;
+
+  const quoteEl = document.getElementById('qQuote');
+  if (q.quote) { quoteEl.style.display = 'block'; quoteEl.textContent = q.quote; }
+  else { quoteEl.style.display = 'none'; }
+
+  document.getElementById('qText').innerHTML = q.text;
+
+  const opts = document.getElementById('optionsContainer');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.innerHTML = `<span class="option-key">${KEYS[i]}</span><span class="option-text">${o}</span><span class="option-icon"></span>`;
+    btn.addEventListener('click', () => selectAnswer(i));
+    opts.appendChild(btn);
+  });
+
+  document.getElementById('feedbackBox').className = 'feedback-box';
+  document.getElementById('nextBtn').className = 'next-btn';
+
+  startTimer();
+}
+
+function startTimer() {
+  clearInterval(timer);
+  const timerEl = document.getElementById('qTimer');
+  timerEl.className = 'q-timer';
+  timerEl.textContent = timeLeft;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    timerEl.textContent = timeLeft;
+    if (timeLeft <= 8) timerEl.className = 'q-timer urgent';
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      if (!answered) timeUp();
+    }
+  }, 1000);
+}
+
+function timeUp() {
+  answered = true;
+  const q = questions[current];
+  disableOptions();
+  markCorrect(q.ans);
+  userAnswers.push({ correct: false, timeUp: true, ans: -1 });
+  showFeedback(false, q);
+  document.getElementById('nextBtn').className = 'next-btn show';
+}
+
+function selectAnswer(idx) {
+  if (answered) return;
+  answered = true;
+  clearInterval(timer);
+
+  const q = questions[current];
+  const btns = document.querySelectorAll('.option-btn');
+  const isCorrect = idx === q.ans;
+
+  disableOptions();
+
+  if (isCorrect) {
+    btns[idx].classList.add('correct');
+    btns[idx].querySelector('.option-icon').textContent = '✓';
+    score += 10;
+    spawnConfetti(6);
+  } else {
+    btns[idx].classList.add('wrong');
+    btns[idx].querySelector('.option-icon').textContent = '✗';
+    markCorrect(q.ans);
+  }
+
+  userAnswers.push({ correct: isCorrect, ans: idx });
+  showFeedback(isCorrect, q);
+  document.getElementById('nextBtn').className = 'next-btn show';
+}
+
+function markCorrect(idx) {
+  const btns = document.querySelectorAll('.option-btn');
+  btns[idx].classList.add('correct');
+  btns[idx].querySelector('.option-icon').textContent = '✓';
+}
+
+function disableOptions() {
+  document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+}
+
+function showFeedback(isCorrect, q) {
+  const box = document.getElementById('feedbackBox');
+  const header = document.getElementById('feedbackHeader');
+  const text = document.getElementById('feedbackText');
+  const correctAns = document.getElementById('feedbackCorrectAns');
+
+  if (isCorrect) {
+    box.className = 'feedback-box correct-fb show';
+    header.textContent = '✦ 答對了！';
+  } else {
+    box.className = 'feedback-box wrong-fb show';
+    header.textContent = '✘ 答錯了';
+    correctAns.textContent = `正確答案：${KEYS[q.ans]}　${q.opts[q.ans]}`;
+  }
+  text.textContent = q.explain;
+  if (isCorrect) correctAns.textContent = '';
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= questions.length) showResult();
+  else renderQuestion();
+}
+
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  const rs = document.getElementById('resultScreen');
+  rs.className = 'result-screen show';
+
+  const pct = score / 120;
+  let rank, msg, seal;
+  if (pct >= 0.9) { rank = '武侯親傳'; msg = '你對第三、四段的掌握已臻化境，詞義、語法、人物、深意無一遺漏，諸葛孔明若在，必點頭稱善！'; seal = '甲'; }
+  else if (pct >= 0.75) { rank = '良臣之資'; msg = '根基深厚，對宮府一體、賢臣薦舉的理解相當紮實。偶有疏漏，再加溫習，必能更進一步。'; seal = '良'; }
+  else if (pct >= 0.6) { rank = '初識經典'; msg = '已具一定基礎，惟部分詞義通假與深層寫意尚需反覆研讀原文，方能融會貫通。'; seal = '可'; }
+  else { rank = '需加苦讀'; msg = '切勿氣餒！先熟讀原文，再細辨詞義與段落結構，必有所成。'; seal = '勤'; }
+
+  document.getElementById('sealText').textContent = seal;
+  document.getElementById('resultScore').textContent = score;
+  document.getElementById('resultRank').textContent = rank;
+  document.getElementById('resultMsg').textContent = msg;
+
+  const rl = document.getElementById('reviewList');
+  rl.innerHTML = '<div style="font-family:\'Ma Shan Zheng\',cursive;font-size:13px;color:var(--gold);letter-spacing:3px;margin-bottom:10px;">✦ 答題回顧</div>';
+  userAnswers.forEach((ua, i) => {
+    const q = questions[i];
+    const div = document.createElement('div');
+    div.className = `review-item ${ua.correct ? 'r-correct' : 'r-wrong'}`;
+    const shortQ = q.text.length > 22 ? q.text.slice(0,22)+'…' : q.text;
+    div.innerHTML = `<span class="review-dot">${ua.correct ? '✓' : '✗'}</span>
+      <span class="review-q">第${NUMS[i]}題：${shortQ}
+        ${ua.correct
+          ? `<br><span class="review-ans">答對　＋10分</span>`
+          : `<br><span class="review-wrong-ans">正確：${KEYS[q.ans]}　${q.opts[q.ans].slice(0,16)}${q.opts[q.ans].length>16?'…':''}</span>`
+        }
+      </span>`;
+    rl.appendChild(div);
+  });
+
+  if (pct >= 0.75) spawnConfetti(20);
+}
+
+function restartQuiz() {
+  current = 0; score = 0; userAnswers = [];
+  document.getElementById('resultScreen').className = 'result-screen';
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('introScreen').classList.remove('hide');
+}
+
+function spawnConfetti(n) {
+  const colors = ['#b8860b','#9b1d1d','#2d6a4f','#d4a017','#c0392b','#f0d078'];
+  for (let i = 0; i < n; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.cssText = `
+      left:${Math.random()*100}vw;
+      top:-10px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      width:${6+Math.random()*6}px;
+      height:${6+Math.random()*6}px;
+      animation-duration:${1.5+Math.random()*2}s;
+      animation-delay:${Math.random()*0.5}s;
+    `;
+    document.body.appendChild(el);
+    el.addEventListener('animationend', () => el.remove());
+  }
+}
+</script>
+</body>
+</html>
